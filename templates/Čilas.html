@@ -1,0 +1,50 @@
+{% extends "base.html"  %}
+{% block content %}
+
+<div>
+    <div class="row">
+        <div class="col-4">
+            <img style="margin-left: 25px;" src="http://www.cilas.lt/images/cilas-2-2.png" alt="Čilas" height="180">
+
+                  <p style="margin-left: 50px;"> Telefonas: <br> <a href="tel:+370 688 80408" class="btn btn-danger btn-lg" >+370 688 80408</a></p>
+                  <p style="margin-left: 50px;">Svetainė: <br> <a href="http://www.cilas.lt/" class="btn btn-danger btn-lg">cilas.lt</a></p>
+
+        </div>
+
+        <div class="col map-wrapper">
+            <iframe style="margin-bottom: 10px;" width="700" height="400" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2766.4758458368983!2d23.95917074367646!3d54.92104607847994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e7179d27a07bb7%3A0x6314f788234bd1b2!2zUGljZXJpamEgIsSMaWxhcyI!5e0!3m2!1slt!2slt!4v1646686705439!5m2!1slt!2slt" loading="lazy"></iframe>
+        </div>
+    </div>
+</div>
+
+
+
+{% for veg_pica in data %}
+
+  <div >
+      <div class="card mb-3" >
+        <div class="row g-0">
+          <div class="col-md-3">
+            <img src="{{veg_pica[4]}}" class="card-img" alt="pica" height="180">
+          </div>
+          <div class="col-md-9">
+            <div class="card-body">
+              <h5 class="card-title ">{{veg_pica[0]}}</h5>
+              <p class=" card-text ">{{veg_pica[1]}}</p>
+              <div class="row" >
+                <small class="text-muted" style="margin-left: 15px;" >Vidutinės picos kaina: {{veg_pica[2]}} €</small>
+                <small class="text-muted">Didelės picos kaina:  {{veg_pica[3]}} €</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+
+
+
+{% endfor %}
+
+
+{% endblock %}

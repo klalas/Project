@@ -1,15 +1,17 @@
-import requests
-from orai_api import api_key
 
-#url = "https://weather-com.p.rapidapi.com/v3/wx/disease/tracker/countryList/current"
+#import requests
+#import json
+#import random
+#mport webbrowser as wb
 
-#querystring = {"language":"en"}
 
-#headers = {
-#    'x-rapidapi-host': "weather-com.p.rapidapi.com",
-#    'x-rapidapi-key': api_key
-#     }
+#API_key = '14795746-624081efd179b5bd9be0efe43'
 
-#response = requests.request("GET", url, headers=headers, params=querystring)
-
-#print(response.text)
+#def open():
+#    payload = {'key': API_key, 'q': 'car', 'img_type': 'photo'}
+#    r = requests.get('https://pixabay.com/api/', params=payload)
+#    result = json.loads(r.text)
+#    skaicius= random.randint(1,10)
+#    #wb.open_new_tab(result['hits'][skaicius]['largeImageURL'])
+#    return (result['hits'][skaicius]['largeImageURL'])
+#print(open())

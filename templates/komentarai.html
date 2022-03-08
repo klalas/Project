@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+  {% for komentarai in data %}
+
+
+<div class="card" style="margin: 20px; max-width: 800px;">
+  <div class="card-body">
+          <div >
+              <h5><u>{{komentarai[1]}}</u></h5>
+          </div>
+          <div >
+              <h6>{{komentarai[2]}}</h6>
+      </div>
+      <div class="row " >
+          <div class="col">
+              <p>{{komentarai[3]}}</p>
+          </div>
+      </div>
+  </div>
+</div>
+
+  {% endfor %}
+
+<br>
+
+
+<form method="post" action="#" style="margin: 20px;">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        {{form.vardas.label(class="form-control-label")}}
+        {{form.vardas(class="form-control")}}
+        {% if form.vardas.errors %}
+            {% for error in form.vardas.errors %}
+                <small><font color="red">{{error}}</font></small>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+        {{form.pavadinimas.label(class="form-control-label")}}
+        {{form.pavadinimas(class="form-control")}}
+        {% if form.pavadinimas.errors %}
+            {% for error in form.pavadinimas.errors %}
+                <small><font color="red">{{error}}</font></small>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+        {{form.komentaras.label(class="form-control-label")}}
+        {{form.komentaras(class="form-control")}}
+        {% if form.komentaras.errors %}
+            {% for error in form.komentaras.errors %}
+                <small><font color="red">{{error}}</font></small>
+            {% endfor %}
+        {% endif %}
+    </div>
+    {{form.submit(class="btn btn-success btn-lg" )}}
+</form>
+
+{% endblock %}

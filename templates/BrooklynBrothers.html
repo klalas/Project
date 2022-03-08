@@ -1,0 +1,50 @@
+{% extends "base.html"  %}
+{% block content %}
+
+<div>
+    <div class="row">
+        <div class="col-4">
+            <a style="margin-left: 50px;" href="/BrooklynBrothers"> <img src="https://static.wixstatic.com/media/bb0e8d_ea559b1477994cfe805f3071e1ca3ae0~mv2.png/v1/fill/w_133,h_128,al_c,usm_0.66_1.00_0.01,enc_auto/Untitled-3-01.png" alt="BrooklynBrothers" height="160"></a>
+
+                  <p style="margin-left: 50px;"> Telefonas: <br> <a href="tel:+37067311939" class="btn btn-danger btn-lg" >++37067311939</a></p>
+                  <p style="margin-left: 50px;">Svetainė: <br> <a href="https://www.brooklyn.lt/" class="btn btn-danger btn-lg">brooklyn.lt</a></p>
+
+        </div>
+
+        <div class="col map-wrapper">
+            <iframe style="margin-bottom: 10px;" width="700" height="400" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1051.9013148387448!2d23.88742548854075!3d54.89918631542472!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe67f17d0a42e0e4!2sBrooklyn%20Brothers!5e0!3m2!1slt!2slt!4v1646686176523!5m2!1slt!2slt"   allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+</div>
+
+
+
+{% for veg_pica in data %}
+
+  <div >
+      <div class="card mb-3" >
+        <div class="row g-0">
+          <div class="col-md-2">
+            <img src="{{veg_pica[4]}}" class="card-img" alt="pica" height="160">
+          </div>
+          <div class="col-md-10">
+            <div class="card-body">
+              <h5 class="card-title ">{{veg_pica[0]}}</h5>
+              <p class=" card-text ">{{veg_pica[1]}}</p>
+              <div class="row" >
+                <small class="text-muted" style="margin-left: 15px;" >Vidutinės picos kaina: {{veg_pica[2]}} €</small>
+                <small class="text-muted">Didelės picos kaina:  {{veg_pica[3]}} €</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+
+
+
+{% endfor %}
+
+
+{% endblock %}

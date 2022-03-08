@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">pridekite pica</legend>
+                <div class="form-group">
+                    {{ form.Company.label(class="form-control-label") }}
+                    {% if form.Company.errors %}
+                        {{ form.Company(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.Company.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.Company(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.Pizza_name.label(class="form-control-label") }}
+                    {% if form.Pizza_name.errors %}
+                        {{ form.Pizza_name(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.Pizza_name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.Pizza_name(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.Ingredients.label(class="form-control-label") }}
+                    {% if form.Ingredients.errors %}
+                        {{ form.Ingredients(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.Ingredients.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.Ingredients(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                 <div class="form-group">
+                    {{ form.Price_S.label(class="form-control-label") }}
+                    {% if form.Price_S.errors %}
+                        {{ form.Price_S(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.Price_S.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.Price_S(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                 <div class="form-group">
+                    {{ form.Price_L.label(class="form-control-label") }}
+                    {% if form.Price_L.errors %}
+                        {{ form.Price_L(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.Price_L.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.Price_L(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                 <div class="form-group">
+                    {{ form.Img.label(class="form-control-label") }}
+                    {% if form.Img.errors %}
+                        {{ form.Img(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.Img.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.Img(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+{% endblock content %}

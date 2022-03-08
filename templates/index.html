@@ -1,0 +1,46 @@
+
+
+{% extends "base.html"  %}
+{% block content %}
+
+<div class="color" style="background: lightgreen;">
+
+  {% if current_user.is_authenticated %}
+  <br>
+  <p> <a class="btn btn-success btn-lg" href="{{url_for('nauja_pica')}}" >Pridėti naują picą</a></p>
+  <br>
+
+
+  {% endif %}
+
+  <h1 class="text-center" style="padding: 20px; color: green;">Visos Vegetariškos Picos</h1>
+
+  {% for veg_pica in data %}
+  <div >
+      <div class="card mb-3" >
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="{{veg_pica[5]}}" class="card-img" alt="pica" height="300">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h4 class="card-title ">{{veg_pica[0]}}</h4>
+              <h2 class="card-title ">{{veg_pica[1]}}</h2>
+              <p class="card-text ">{{veg_pica[2]}}</p>
+              <h5 class="card-text "><small class="text-muted">Vidutinės picos kaina: {{veg_pica[3]}} €</small></h5>
+              <h5 class="card-text "><small class="text-muted">Didelės picos kaina:  {{veg_pica[4]}} €</small></h5>
+              <div class="d-grid gap-2">
+                <a class="btn btn-danger btn-lg" href="/{{veg_pica[0]}}" role="button">Užsakyti</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+
+
+  {% endfor %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "base.html"  %}
+{% block content %}
+
+<div>
+    <div class="row">
+        <div class="col-4">
+            <img src="https://www.picapica.lt/images/logo.png" alt="PicaPica" height="120">
+
+                  <p style="margin-left: 50px;"> Telefonas: <br> <a href="tel:+37061305305" class="btn btn-danger btn-lg" >+37061305305</a></p>
+                  <p style="margin-left: 50px;">Svetainė: <br> <a href="https://www.picapica.lt/" class="btn btn-danger btn-lg">picapica.lt</a></p>
+
+        </div>
+
+        <div class="col map-wrapper">
+            <iframe style="margin-bottom: 10px;" width="700" height="400" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2180.458868081425!2d23.95830189601069!3d54.911775008248796!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3331ba4c75ced0f0!2sPica%20Pica!5e0!3m2!1slt!2slt!4v1646683929485!5m2!1slt!2slt"   allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+</div>
+
+
+
+{% for veg_pica in data %}
+
+  <div >
+      <div class="card mb-3" >
+        <div class="row g-0">
+          <div class="col-md-2">
+            <img src="{{veg_pica[4]}}" class="card-img" alt="pica" height="135">
+          </div>
+          <div class="col-md-10">
+            <div class="card-body">
+              <h5 class="card-title ">{{veg_pica[0]}}</h5>
+              <p class=" card-text ">{{veg_pica[1]}}</p>
+              <div class="row" >
+                <small class="text-muted" style="margin-left: 15px;" >Vidutinės picos kaina: {{veg_pica[2]}} €</small>
+                <small class="text-muted">Didelės picos kaina:  {{veg_pica[3]}} €</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+
+
+
+{% endfor %}
+
+
+{% endblock %}

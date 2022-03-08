@@ -4,7 +4,9 @@
         <form method="POST" action="">
         {{ form.hidden_tag() }}
         <fieldset class="form-group">
-            <legend class="border-bottom mb-4">Prisiregistruokitr</legend>
+            <div>
+                <h5>Žinai kur gaminama pati skaniausia vegetariška pica Kaune? Nori tapti komandos dalimi? Tuomet pildyk šią anketą!</h5>
+            </div>
             <div class="form-group">
                 {{ form.vardas.label(class="form-control-label") }}
 
@@ -64,14 +66,14 @@
 
         </fieldset>
         <div class="form-group">
-          {{ form.submit(class="btn btn-outline-info" ) }}
+          {{ form.submit(class="btn btn-success btn-lg" ) }}
 
         </div>
         </form>
     </div>
     <div class="border-top pt-3">
         <small class="text-muted">
-           Already Have An Account? <a class="ml-2" href="{{url_for('login') }}">Sign In</a>
+           Jau turi paskyrą? <a class="ml-2" href="{{url_for('login') }}">Prisijunk čia</a>
         </small>
     </div>
 

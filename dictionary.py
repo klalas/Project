@@ -1,21 +1,38 @@
-data =[{
-    'data':'2020 01 01',
-    'autorius': 'Agata Kristie',
-    'pavadinimas': 'Apie nieką',
-    'tekstas': 'Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum maurisZombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. SZombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. SZombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. SZombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. SZombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. SZombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. SZombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. SZombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. SZombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. SZombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. SZombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. SZombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. SZombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. SZombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. SZombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. SZombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. SZombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. SZombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. SZombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. S.',
-    'status': 'published'
-},
-{
-    'data':'2020 02 01',
-    'autorius': 'Stanlis Ibkisas',
-    'pavadinimas': 'Apie zombius',
-    'tekstas': 'Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. ',
-    'status': 'published'
-},
-{
-    'data':'2020 03 01',
-    'autorius': 'Kalėdų senelis',
-    'pavadinimas': 'Braiiins!',
-    'tekstas': 'Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris.',
-    'status': 'published'
-}]
+import sqlite3
+import pandas as pd
+
+conn = sqlite3.connect('puslapiui.db')
+cur= conn.cursor()
+cur.execute("""select * from picos_csv""")
+pizzas = cur.fetchall()
+
+conn = sqlite3.connect('puslapiui.db')
+cur= conn.cursor()
+cur.execute("""select * from komentarai""")
+kom = cur.fetchall()
+
+conn = sqlite3.connect('puslapiui.db')
+cur= conn.cursor()
+cur.execute("""select * from picos_csv""")
+pizzasBrooklyn= pd.DataFrame(cur.fetchall())
+pizzasBrooklyn = pizzasBrooklyn.set_index([0])
+pizzasBrooklyn= pizzasBrooklyn.loc['BrooklynBrothers']
+pizzasBrooklynBrothers = pizzasBrooklyn.values.tolist()
+
+
+conn = sqlite3.connect('puslapiui.db')
+cur= conn.cursor()
+cur.execute("""select * from picos_csv""")
+pizzasPica= pd.DataFrame(cur.fetchall())
+pizzasPica = pizzasPica.set_index([0])
+pizzasPica= pizzasPica.loc['PicaPica']
+pizzasPicaPica = pizzasPica.values.tolist()
+
+
+conn = sqlite3.connect('puslapiui.db')
+cur= conn.cursor()
+cur.execute("""select * from picos_csv""")
+pizzasČil= pd.DataFrame(cur.fetchall())
+pizzasČil = pizzasČil.set_index([0])
+pizzasČil= pizzasČil.loc['Čilas']
+pizzasČilas = pizzasČil.values.tolist()

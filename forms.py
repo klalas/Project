@@ -4,17 +4,26 @@ from wtforms.validators import DataRequired, Length, Email, ValidationError, Equ
 
 
 class ContactForm(FlaskForm):
-    name = StringField("Vardas", [DataRequired(), Length(min=5, message="per trumpa zinute")])
-    email = StringField('el.pastas', [Email(message="Neteisingas adresas."), DataRequired()])
-    body = TextAreaField('jusu pranesimas', [DataRequired(), Length(min=20, message='per trumoa zinute')])
+    vardas = StringField("Vardas", [DataRequired(), Length(min=5, message="per trumpa zinute")])
+    pavadinimas = StringField('Tema', [DataRequired()])
+    komentaras = TextAreaField('Tavo Komentaras', [DataRequired(), Length(min=20, message='per trumpa zinute')])
 
-    submit = SubmitField('Siusti')
+    submit = SubmitField('Komentuoti')
+
+class SukurtiPica(FlaskForm):
+    Company = StringField('Įmonė', [DataRequired()])
+    Pizza_name = StringField('Picos pavadinimas', [DataRequired()])
+    Ingredients= TextAreaField('Ingridientai')
+    Price_S = StringField('Mažos picos kaina', [DataRequired()])
+    Price_L = StringField('Didelės picos kaina', [DataRequired()])
+    Img = StringField('Paveikslėlio nuoroda', [DataRequired()])
+    submit = SubmitField('Siųsti')
 
 class RegistracijosForma(FlaskForm):
     vardas= StringField('Vardas', [DataRequired()])
-    el_pastas = StringField('el.pastas', [DataRequired()])
-    slaptazodis = PasswordField('Slaptazodis', [DataRequired()])
-    patvirtintas_slaptazodis= PasswordField('Pakartoti slaptazodi', [EqualTo('slaptazodis','slaptazodziai turi sutapti')])
+    el_pastas = StringField('El.paštas', [DataRequired()])
+    slaptazodis = PasswordField('Slaptažodis', [DataRequired()])
+    patvirtintas_slaptazodis= PasswordField('Pakartoti slaptažodį', [EqualTo('slaptazodis','slaptazodziai turi sutapti')])
     submit = SubmitField('Registruotis')
 
     def tikrinti_vartotoja(self, vardas):
@@ -32,8 +41,3 @@ class PrisijungimoForma(FlaskForm):
     prisiminti= BooleanField('Prisiminti mane')
     submit = SubmitField('Prisijungti')
 
-class rasytiStraipsni(FlaskForm):
-    autorius = StringField('Vardas Pavarde', [DataRequired()])
-    pavadinimas = StringField('Pavadinimas', [DataRequired(), Length(min=50, message='per trumpas straipsnis')])
-    straipsnis= TextAreaField('Ivesti teksta')
-    submit = SubmitField('Siusti')
